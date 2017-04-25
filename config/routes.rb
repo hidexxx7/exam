@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-#  get 'tops' => 'tops#index'
-  resources:tops, only: [:index]
+
+  resources:tops, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post :confirm
+    end
+  end
   
   root 'tops#index'
   

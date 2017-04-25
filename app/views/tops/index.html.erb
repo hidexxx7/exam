@@ -1,3 +1,11 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
-<p>トップページです</p>
+<p><%= notice %></p>
+
+<h1>呟き一覧</h1>
+
+<% @tops.each do |top| %>
+  <p>本文:<%= top.content %></p>
+  <%= link_to "つぶやきを編集する", edit_top_path(top.id), data: { confirm: '本当に編集していいですか？' } %><br>
+  <%= link_to "つぶやきを削除する", top_path(top.id), method: :delete , data: { confirm: '本当に編集していいですか？' } %><br>
+<% end %>
+<br>
+<%= link_to "つぶやく", new_top_path %>
