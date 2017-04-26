@@ -6,10 +6,16 @@ class TopsController < ApplicationController
   end
   
   def new
-    @top = Top.new
+    if params[:back]
+      @top = Top.new(tops_params)
+    else
+      @top = Top.new
+    end
   end
   
   def confirm
+    @top = Top.new(tops_params)
+    render :new if @top.invalid?
   end
   
   def create

@@ -3,9 +3,9 @@
 <h1>呟き一覧</h1>
 
 <% @tops.each do |top| %>
-  <p>本文:<%= top.content %></p>
-  <%= link_to "つぶやきを編集する", edit_top_path(top.id), data: { confirm: '本当に編集していいですか？' } %><br>
-  <%= link_to "つぶやきを削除する", top_path(top.id), method: :delete , data: { confirm: '本当に編集していいですか？' } %><br>
+  <p><%= top.content %></p>
+  <%= link_to "つぶやきを編集する", edit_top_path(top.id) %>
+  <%= link_to "つぶやきを削除する", top_path(top.id), method: :delete , data: { confirm: '本当に編集していいですか？' } %><br><br>
 <% end %>
 <br>
 <%= link_to "つぶやく", new_top_path %>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_for(@top) do |f| %>
+<%= form_for(@top, url: choose_new_or_edit) do |f| %>
 
   <% if @top.errors.any? %>
     <div id="error_explanation">

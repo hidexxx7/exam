@@ -1,0 +1,12 @@
+<h3>以下の内容で、発信する。</h3>
+
+<%= form_for(@top) do |f| %>
+  <%= f.hidden_field :content %>
+  <p>本文:<%= @top.content %></p>
+  <%= f.submit "つぶやく" %>
+<% end %>
+
+<%= form_for(@top, url: new_top_path, method: 'get') do |f| %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "心のうちに留める", name: 'back' %>
+<% end %>
