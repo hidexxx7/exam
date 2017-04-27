@@ -1,11 +1,14 @@
-<p><%= notice %></p>
-
-<h1>呟き一覧</h1>
-
-<% @tops.each do |top| %>
-  <p><%= top.content %></p>
-  <%= link_to "つぶやきを編集する", edit_top_path(top.id) %>
-  <%= link_to "つぶやきを削除する", top_path(top.id), method: :delete , data: { confirm: '本当に編集していいですか？' } %><br><br>
-<% end %>
-<br>
-<%= link_to "つぶやく", new_top_path %>
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>呟き一覧</h1>
+    <%= link_to "つぶやく", new_top_path, class: 'btn btn-default' %><br><br>
+    <% @tops.each do |top| %>
+    <div class="row">
+      <p><%= top.content %></p>
+      <%= link_to "編集", edit_top_path(top.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", top_path(top.id), method: :delete , data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-default btn-sm btn btn-danger' %><br><br>
+    </div>
+    <% end %>
+  </div>
+</div>

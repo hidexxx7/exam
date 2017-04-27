@@ -1,12 +1,14 @@
-<h3>以下の内容で、発信する。</h3>
-
-<%= form_for(@top) do |f| %>
-  <%= f.hidden_field :content %>
-  <p>本文:<%= @top.content %></p>
-  <%= f.submit "つぶやく" %>
-<% end %>
-
-<%= form_for(@top, url: new_top_path, method: 'get') do |f| %>
-  <%= f.hidden_field :content %>
-  <%= f.submit "心のうちに留める", name: 'back' %>
-<% end %>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h3>以下の内容で、つぶやく。</h3>
+      <%= form_for(@top) do |f| %>
+      <%= f.hidden_field :content %>
+      <p>本文:<%= @top.content %></p>
+      <%= f.submit "つぶやく",class: 'btn btn-primary btn-block'  %>
+    <% end %>
+    <%= form_for(@top, url: new_top_path, method: 'get') do |f| %>
+      <%= f.hidden_field :content %>
+      <%= f.submit "冷静に見直す？", name: 'back', class: 'btn btn-default btn-block' %>
+    <% end %>
+  </div>
+</div>
